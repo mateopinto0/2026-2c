@@ -8,13 +8,21 @@ namespace Clase_1_Tarea.JuegoNumero
     public class JuegoNumero : IO.IJuegoNumero
     {
         private int numeroSecreto;
-        //private Random random;
+        private Random random;
         private int intentos;
+
+        public JuegoNumero()
+        {
+            //Constructor para iniciar el juego con un numero secreto aleatorio
+            this.random = new Random();
+            this.intentos = 0;
+            this.numeroSecreto = this.random.Next(1, 101);
+            reiniciar();
+        }
 
         public JuegoNumero(int numeroSecreto)
         {
-            //Generamos un numero aleatorio entre 1 y 100
-            
+            //Constructor para testear el juego con un numero secreto fijo
             this.numeroSecreto = numeroSecreto ;
             intentos = 0;
             reiniciar();
